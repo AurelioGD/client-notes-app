@@ -1,0 +1,14 @@
+.nav{
+    background-color: var(--primaryColor);
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 0 1.2rem 1.2rem;
+}
+.nav__logo{
+    font-weight: 100;
+    font-family: var(--logoFont);
+    color: var(--fontColorLight);
+    font-size: var(--sizeLogo);
+}

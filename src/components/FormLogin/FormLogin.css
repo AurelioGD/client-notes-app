@@ -1,0 +1,45 @@
+.container-form{
+    position: relative;
+    width: 28rem;
+    height: 37rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: var(--borderRadiusBox);
+    box-shadow: 0px 5px 8px 1px gray;
+    margin-top: 100px;
+    font-family: var(--textFont);
+}
+.container-form__icon-user{
+    color:  #a3a3a3;
+    width: 10rem;
+    display: block;
+    position: absolute;
+    top: -80px;
+}
+.container-form__form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.container-form__input-username{
+    width: 17rem;
+    height: 4rem;
+}
+.container-form__input-password{
+    width: 17rem;
+    height: 4rem;
+}
+.container-form__button-submit{
+    width: 17rem;
+    height: 4rem;
+    border: 0;
+    border-radius: 1rem;
+    color: var(--fontColorLight);
+    background-color: var(--primaryColor);
+}
+.mg-2rem{
+    margin: 1.5rem 0 1.5rem 0;
+}
