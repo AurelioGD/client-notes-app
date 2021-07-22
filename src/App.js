@@ -1,10 +1,16 @@
 import './App.css';
-import Login from './pages/Login/Login';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import CompleteNav from './components/CompleteNav/CompleteNav';
+
 function App() {
   return (
-    <div className="App">
-      <Login/>
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/home" exact children={<CompleteNav/>}/>
+
+      </Switch>
+            
+    </Router>  
   );
 }
 
