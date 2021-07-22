@@ -8,7 +8,7 @@
     align-items: center;
     border-radius: var(--borderRadiusBox);
     box-shadow: 0px 5px 8px 1px gray;
-    margin-top: 100px;
+    margin-top: 8rem;
     font-family: var(--textFont);
 }
 .container-form__icon-user{
@@ -16,7 +16,7 @@
     width: 10rem;
     display: block;
     position: absolute;
-    top: -80px;
+    top: -5rem;
 }
 .container-form__form{
     display: flex;
@@ -24,17 +24,13 @@
     align-items: center;
     justify-content: center;
 }
-.container-form__input-username{
-    width: 17rem;
-    height: 4rem;
-}
-.container-form__input-password{
-    width: 17rem;
-    height: 4rem;
+.container-form__input-username,.container-form__input-password{
+    width: 20rem;
+    padding: 0.8rem 1rem;
 }
 .container-form__button-submit{
-    width: 17rem;
-    height: 4rem;
+    width: 18rem;
+    height: 3.5rem;
     border: 0;
     border-radius: 1rem;
     color: var(--fontColorLight);

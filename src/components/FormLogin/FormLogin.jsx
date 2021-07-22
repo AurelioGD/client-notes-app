@@ -1,5 +1,5 @@
 import './FormLogin.css'
-import UserIcon from '../../svg/user-circle.svg';
+import UserIcon from '../../svg/user-icon.svg';
 
 function FormLogin({action}) {
     return (
