@@ -1,0 +1,24 @@
+.main-AllNotes{
+    display: flex;
+    flex-direction: column;
+}
+.main-AllNotes__notes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 1rem;
+}
+.main-AllNotes__title{
+    text-align: center;
+    font-size: 4rem;
+    font-family: var(--titleFont);
+    font-weight: 100;
+    color: var(--fontColorDark);
+}
+@media screen and (min-width:300px) and (max-width:600px) {
+    .main-AllNotes__title{
+        font-size: 3rem;
+    }
+}
+

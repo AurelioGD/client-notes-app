@@ -1,0 +1,41 @@
+.note{
+    width: 17rem;
+    height: 20rem;
+    padding: 1rem;
+    box-shadow: 0px 2px 8px 1px gray;
+    border-radius: 1rem;
+    font-family: var(--textFont);
+    margin: 1rem;
+}
+.note__title{
+    text-align: center;
+    font-size: 1.5rem;
+}
+.note__description{
+    text-align: center;
+    margin-top: 1rem;
+}
+.note__actions{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+.note__btn{
+    width: 4.5rem;
+    height: 2.5rem;
+    border: 0;
+    border-radius: 1rem;
+    color: var(--fontColorLight);
+}
+.btn-edit{
+    background-color: #F9A825;
+}
+.btn-about{
+    background-color: var(--primaryColor)
+}
+/* @media  screen and (min-width:300px) and (max-width:766px) {
+    .note{
+        margin-bottom: 1rem;
+    }   
+} */

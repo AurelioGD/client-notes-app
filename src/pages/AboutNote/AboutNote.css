@@ -1,0 +1,37 @@
+.main-AboutNote{
+    display: flex;
+    flex-direction: column;
+}
+.main-AboutNote__title{
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 4rem;
+    font-family: var(--titleFont);
+    font-weight: 100;
+    color: var(--fontColorDark);
+}
+.main-AboutNote__container-form{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+}
+.main-AboutNote__container-button{
+    margin-top: 3rem;
+    text-align: center;
+}
+.main-AboutNote__btn-back{
+    width: 10rem;
+    height: 3rem;
+    border-radius: 1rem;
+    background-color: var(--primaryColor);
+    color: var(--fontColorLight);
+    border: 0;
+}
+@media  screen and (min-width:300px) and (max-width:766px) {
+    .main-AboutNote__title{
+        font-size: 3rem;
+    }
+    .main-AboutNote__container-button{
+        margin-top: 2rem;
+    }
+}
