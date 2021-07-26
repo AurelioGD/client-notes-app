@@ -11,6 +11,7 @@ function Form({action,title,titleButton}) {
                 <input type="text" className="container-form__input-password mg-2rem" placeholder="Type your password..."/>
                 <button className="container-form__button-submit mg-2rem">{titleButton}</button>
             </form>
+            <p>Don't have an account? <a href="/register">Sign up</a></p>
         </div>
     )
 }
