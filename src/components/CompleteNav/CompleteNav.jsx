@@ -5,10 +5,15 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
 
-const CompleteNav = ({handlerLogOut}) => {
+const CompleteNav = () => {
     const [showMenu,setShowMenu]=useState(false);
     let navClass= showMenu?'header__menu header__menu--show':'header__menu';
 
+    const handlerLogOut=(e)=>{
+        e.preventDefault()
+        localStorage.removeItem("userInfoSession")
+        window.location.href="/login"
+    }
     
     return (
         <header className="header">
@@ -22,7 +27,7 @@ const CompleteNav = ({handlerLogOut}) => {
                 <Link to="/all-notes">All Notes</Link>
                 <Link to="/favorite-notes">Favorite Notes</Link>
                 <Link to="/new-note">New Note</Link>
-                <a className="header__logout" href="home" onClick={handlerLogOut} >Log out</a>
+                <a className="header__logout" href="/login" onClick={handlerLogOut} >Log out</a>
             </nav>
             <div className="header__menu-icon">
                 <img src={menuIcon} onClick={()=>setShowMenu(!showMenu)} alt="menu-icon" />

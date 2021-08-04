@@ -1,7 +1,7 @@
 import './Form.css'
 import UserIcon from '../../svg/user-icon.svg';
 import { useState }from 'react'
-import {Redirect} from 'react-router-dom'
+
 function Form({action='#',title="Form",titleButton="submit",inputName=false,textSignUp=false,path=null}) {
 
     const [dataForm,setDataForm]=useState({})
@@ -13,6 +13,18 @@ function Form({action='#',title="Form",titleButton="submit",inputName=false,text
         })
     }
 
+    const handlerResponse=(response)=>{
+        const { error } = response;
+
+        if(error) return window.location.href="/login"
+
+        const { id, name ,token } = response;
+
+        localStorage.setItem('userInfoSession', JSON.stringify({id,name,token}))
+
+        return window.location.href="/home"
+
+    }
     const handlerSubmit=(e)=>{
         e.preventDefault()
         if(!path) return
@@ -29,10 +41,7 @@ function Form({action='#',title="Form",titleButton="submit",inputName=false,text
             body: JSON.stringify(payload)
         })
             .then(rawData=>rawData.json())
-            .then(data=>{
-                localStorage.setItem('usertoken',JSON.stringify(data.token))
-                {<Redirect to="/home" />}
-            })
+            .then(data=>handlerResponse(data))
 
     }
 

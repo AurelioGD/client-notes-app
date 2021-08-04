@@ -1,12 +1,6 @@
 import { Route,Redirect } from 'react-router-dom'
-const PrivateRoute = ({children,...rest}) => {
-    if(localStorage.getItem('usertoken')){
-        return <Route {...rest}>
-            {children}
-        </Route>
-    }else{
-        return <Redirect to='/login'/>
-    }
+const PrivateRoute = ({component:Component,...rest}) => {
+    return <Route {...rest}> {localStorage.getItem('userInfoSession')? <Component/> : <Redirect to="/login"/>} </Route>
 }
 
 export default PrivateRoute
