@@ -25,11 +25,11 @@
     align-items: center;
     justify-content: center;
 }
-.container-form__input-username,.container-form__input-password{
+.container-form__input-username,.container-form__input-password,.container-form__input-name{
     outline: none;
     border: #a3a3a3 solid 1px;
     width: 18rem;
-    padding: 0.8rem 1rem;
+    padding: 1rem 1rem;
 }
 .container-form__button-submit{
     width: 18rem;
@@ -38,7 +38,8 @@
     border-radius: 1rem;
     color: var(--fontColorLight);
     background-color: var(--primaryColor);
+    cursor: pointer;
 }
 .mg-2rem{
-    margin: 1.5rem 0 3rem 0;
+    margin: 1.5rem 0 1.5rem 0;
 }

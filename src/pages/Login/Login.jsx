@@ -1,12 +1,14 @@
-import FormLogin from "../../components/FormLogin/FormLogin";
+import Form from "../../components/Form/Form";
 import SmallNav from "../../components/SmallNav/SmallNav";
 import './Login.css'
+
 const Login = () => {
+
     return (
         <div>
             <SmallNav/>
             <div className="main">
-                <FormLogin/>
+                <Form title="Login" titleButton="Enter" textSignUp={true} path="http://localhost:5500/api/login"/>
             </div>
         </div>
     )
