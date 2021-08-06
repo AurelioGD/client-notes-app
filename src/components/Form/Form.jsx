@@ -2,7 +2,7 @@ import './Form.css'
 import UserIcon from '../../svg/user-icon.svg';
 import { useState }from 'react'
 
-function Form({action='#',title="Form",titleButton="submit",inputName=false,textSignUp=false,path=null}) {
+function Form({action='#',title="Form",titleButton="submit",inputName=false,textSignUp=false,path=null,modeLogin=true}) {
 
     const [dataForm,setDataForm]=useState({})
 
@@ -13,7 +13,7 @@ function Form({action='#',title="Form",titleButton="submit",inputName=false,text
         })
     }
 
-    const handlerResponse=(response)=>{
+    const handlerResponseLogin=(response)=>{
         const { error } = response;
 
         if(error) return window.location.href="/login"
@@ -25,14 +25,18 @@ function Form({action='#',title="Form",titleButton="submit",inputName=false,text
         return window.location.href="/home"
 
     }
-    const handlerSubmit=(e)=>{
+    const handlerResponseRegister=(response)=>{
+        const { error } = response;
+
+        if(error) return window.location.href="/register"
+
+        return window.location.href="/login"
+    }
+    const handlerSubmitRegister=(e)=>{
         e.preventDefault()
-        if(!path) return
         const payload={
             ...dataForm
         }
-        const a=JSON.stringify(payload);
-        console.log(a)
         fetch(path,{
             headers: {
                 'Content-Type': 'application/json'
@@ -41,7 +45,23 @@ function Form({action='#',title="Form",titleButton="submit",inputName=false,text
             body: JSON.stringify(payload)
         })
             .then(rawData=>rawData.json())
-            .then(data=>handlerResponse(data))
+            .then(data=>handlerResponseRegister(data))
+    }
+    const handlerSubmitLogin=(e)=>{
+        e.preventDefault()
+        if(!path) return
+        const payload={
+            ...dataForm
+        }
+        fetch(path,{
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            method:"POST",
+            body: JSON.stringify(payload)
+        })
+            .then(rawData=>rawData.json())
+            .then(data=>handlerResponseLogin(data))
 
     }
 
@@ -49,7 +69,7 @@ function Form({action='#',title="Form",titleButton="submit",inputName=false,text
         <div className="container-form">
             <img src={UserIcon} alt="icon-user" className="container-form__icon-user"/>
             <h2 className="container-form__title">{title}</h2>
-            <form className="container-form__form" action={action} onSubmit={handlerSubmit}>
+            <form className="container-form__form" action={action} onSubmit={modeLogin ? handlerSubmitLogin : handlerSubmitRegister}>
                 {inputName && <input type="text" name="name"className="container-form__input-name mg-2rem" placeholder="Type your name..." onChange={handlerChange}/>}
                 <input type="text" name="username"className="container-form__input-username mg-2rem" placeholder="Type your username..." onChange={handlerChange}/>
                 <input type="password" name="password"className="container-form__input-password mg-2rem" placeholder="Type your password..." onChange={handlerChange}/>

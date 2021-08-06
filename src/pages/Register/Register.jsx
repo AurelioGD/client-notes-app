@@ -5,7 +5,7 @@ const Register = () => {
         <div>
             <SmallNav/>
             <div className="main">
-                <Form title="Register" titleButton="Sign Up" inputName={true}/>
+                <Form title="Register" titleButton="Sign Up" inputName={true} modeLogin={false} path="http://localhost:5500/api/login/register"/>
             </div>
         </div>
     )
