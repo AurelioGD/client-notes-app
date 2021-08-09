@@ -6,6 +6,8 @@ import Register from './pages/Register/Register';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import AllNotes from './pages/AllNotes/AllNotes';
 import FavoriteNotes from './pages/FavoriteNotes/FavoriteNotes';
+import NewNote from './pages/NewNote/NewNote';
+
 
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
         <PrivateRoute path="/home" exact={true} component={PageWelcome}/>
         <PrivateRoute path="/all-notes" exact={true} component={AllNotes}/>
         <PrivateRoute path="/favorite-notes" exact={true} component={FavoriteNotes}/>
+        <PrivateRoute path="/new-note" exact={true} component={NewNote}/>
         <Route path="/login" exact children={<Login/>}/>
         <Route path="/register" exact children={<Register/>}/>
       </Switch>
