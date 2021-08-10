@@ -11,7 +11,7 @@ const NewNote = () => {
                     <h2 className="main-NewNote__title">Create your note here</h2>
                 </div>
                 <div className="main-NewNote__note-editor">
-                    <NoteEditor />
+                    <NoteEditor path="http://localhost:5500/api/notes/newnote" method="POST" redirect="/all-notes" textButton="Save"/>
                 </div>
             </main>
         </>
