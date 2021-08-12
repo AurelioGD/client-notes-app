@@ -6,6 +6,9 @@
     border-radius: 1rem;
     font-family: var(--textFont);
     margin: 1rem;
+    word-wrap:break-word;
+    overflow: hidden;
+    position: relative;
 }
 .note__title{
     text-align: center;
@@ -16,7 +19,9 @@
     margin-top: 1rem;
 }
 .note__actions{
-    margin-top: 1rem;
+    width: 15rem;
+    position: absolute;
+    bottom: 5px;
     display: flex;
     justify-content: space-around;
     align-items: flex-end;
@@ -27,6 +32,7 @@
     border: 0;
     border-radius: 1rem;
     color: var(--fontColorLight);
+    cursor: pointer;
 }
 .btn-edit{
     background-color: #F9A825;
@@ -34,8 +40,19 @@
 .btn-about{
     background-color: var(--primaryColor)
 }
-/* @media  screen and (min-width:300px) and (max-width:766px) {
-    .note{
-        margin-bottom: 1rem;
-    }   
-} */
+.btn-delete{
+    background-color: #c62828;
+}
+.note__star,.note__icon-star{
+    width: 2rem;
+    height: 2rem;
+    opacity: 0.95;
+}
+.note__star{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: #fff;
+    border: 0;
+    cursor: pointer;
+}
