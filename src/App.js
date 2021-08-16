@@ -7,22 +7,27 @@ import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import AllNotes from './pages/AllNotes/AllNotes';
 import FavoriteNotes from './pages/FavoriteNotes/FavoriteNotes';
 import NewNote from './pages/NewNote/NewNote';
+import UpdateNote from './pages/UpdateNote/UpdateNote';
 
+import InfoNote from './context/InfoNote'
 
 function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/" exact children={<Redirect to="/home"/>}/>
-        <PrivateRoute path="/home" exact={true} component={PageWelcome}/>
-        <PrivateRoute path="/all-notes" exact={true} component={AllNotes}/>
-        <PrivateRoute path="/favorite-notes" exact={true} component={FavoriteNotes}/>
-        <PrivateRoute path="/new-note" exact={true} component={NewNote}/>
-        <Route path="/login" exact children={<Login/>}/>
-        <Route path="/register" exact children={<Register/>}/>
+        <InfoNote>
+          <Route path="/" exact children={<Redirect to="/home"/>}/>
+          <PrivateRoute path="/home" exact={true} component={PageWelcome}/>
+          <PrivateRoute path="/all-notes" exact={true} component={AllNotes}/>
+          <PrivateRoute path="/favorite-notes" exact={true} component={FavoriteNotes}/>
+          <PrivateRoute path="/new-note" exact={true} component={NewNote}/>
+          <PrivateRoute path="/about/:noteId" exact={true} component={UpdateNote}/>
+          <Route path="/login" exact component={Login}/>
+          <Route path="/register" exact children={<Register/>}/>
+        </InfoNote>
       </Switch>
     </Router>  
-  );
+  )
 }
 
 export default App;

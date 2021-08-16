@@ -1,14 +1,14 @@
 import CompleteNav from '../../components/CompleteNav/CompleteNav.jsx';
 import Note from '../../components/Note/Note.jsx';
 import './AllNotes.css'
-
-import { useEffect, useState } from 'react';
+import noteContext from '../../context/noteContext.js';
+import { useContext, useEffect } from 'react';
 
 const API_ALLNOTES="http://localhost:5500/api/notes/all"
 
 const AllNotes = () => {
 
-    const [notes,setNotes] = useState([])
+    const { notes,setNotes }=useContext(noteContext)
 
     useEffect(()=>{
         const token= JSON.parse(localStorage.getItem('userInfoSession')).token;
@@ -20,7 +20,7 @@ const AllNotes = () => {
         })
             .then(rawNotes=>rawNotes.json())
             .then(Notes=>setNotes(Notes.AllNotes))
-    },[])
+    },[setNotes])
 
     return (
         <>

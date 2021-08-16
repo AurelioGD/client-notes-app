@@ -1,14 +1,24 @@
 import './Note.css'
 import starOn from '../../svg/starOn-icon.svg'
 import starOff from '../../svg/starOff-icon.svg'
-
+import deleteNote from '../../services/deleteNote'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const API_CHANGE_FAVORITE='http://localhost:5500/api/notes/togglefavorite';
 
 const Note = ({ noteId , title = "loading..", description="loading..", favorite=false}) => {
 
     const [favoriteMode,setFavoriteMode]=useState(favorite)
+
+    const handlerDeleteNote=()=>{
+        const token= JSON.parse(localStorage.getItem('userInfoSession')).token;
+        deleteNote(noteId,token)
+            .then(rawData=>rawData.json())
+            .then(data=>{
+                if(!data.error)window.location.href='/all-notes'
+            })
+    }
     const handlerChangeFavorite=()=>{
         console.log(noteId)
         const token= JSON.parse(localStorage.getItem('userInfoSession')).token;
@@ -36,8 +46,8 @@ const Note = ({ noteId , title = "loading..", description="loading..", favorite=
             <p className="note__description">{description}</p>
             <div className="note__actions">
                 <button className="note__btn btn-edit">Edit</button>
-                <button className="note__btn btn-about">About</button>
-                <button className="note__btn btn-delete">Delete</button>
+                <Link className="note__btn btn-about" to={'/about/'+noteId}>About</Link>
+                <button className="note__btn btn-delete" onClick={handlerDeleteNote}>Delete</button>
             </div>
         </div>
     )

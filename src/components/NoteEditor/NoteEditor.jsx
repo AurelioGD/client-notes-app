@@ -44,10 +44,14 @@ const NoteEditor = ({valueTitle='',valueDescription='' , readonly=false, path=nu
             .then(rawData=>rawData.json())
             .then(Data=>handlerData(Data))    
     }
+    const handlerModeReadonly=(e)=>{
+        e.preventDefault()
+        window.location.href=redirect;
+    }
 
     return (
         <div className="form-container">
-            <form className="form" onSubmit={handlerSubmit} ref={formRef}>
+            <form className="form" onSubmit={readonly?handlerModeReadonly:handlerSubmit} ref={formRef}>
                 <input className="form__input-title" type="text" value={title} onChange={(e)=>setTitle(e.target.value)} readOnly={readonly}/>
                 <textarea className="form__textarea" name="" id="" cols="30" rows="10" value={description} onChange={(e)=>setDescription(e.target.value)} readOnly={readonly}></textarea>
                 <input className="form__btn-submit" type="submit" value={textButton}/>
