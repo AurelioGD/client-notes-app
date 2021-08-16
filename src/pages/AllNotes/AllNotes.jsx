@@ -31,7 +31,7 @@ const AllNotes = () => {
                 </div>
                 <div className="main-AllNotes__notes">
                     {
-                        notes.map(note=><Note key={note.id} title={note.title} description={note.description}/>)
+                        notes.map(note=><Note key={note._id} title={note.title} description={note.description} favorite={note.favorite} noteId={note._id}/>)
                     }
                 </div>
             </main>

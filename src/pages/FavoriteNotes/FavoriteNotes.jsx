@@ -29,7 +29,7 @@ const FavoriteNotes = () => {
                 </div>
                 <div className="main-fabNote__notes">
                     {
-                        favoriteNotes.map(note=><Note key={note.id} title={note.title} description={note.description}/>)
+                        favoriteNotes.map(note=><Note key={note._id} title={note.title} description={note.description} favorite={true} noteId={note._id}/>)
                     }
                 </div>
             </main>
