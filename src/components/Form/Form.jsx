@@ -23,7 +23,8 @@ function Form({action='#',title="Form",titleButton="submit",inputName=false,text
                 <input type="password" name="password"className="container-form__input-password mg-2rem" placeholder="Type your password..." onChange={handlerChange}/>
                 <input type="submit" className="container-form__button-submit mg-2rem" value={titleButton}/>
             </form>
-            {textSignUp && <p>Don't have an account? <a href="/register">Sign up</a></p>}
+            { modeLogin ? <p>Don't have an account? <a href="/register">Sign up</a></p> : <p>You have an account? <a href="/login">Log in</a></p>}
+            
             
         </div>
     )

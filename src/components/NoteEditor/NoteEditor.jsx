@@ -2,11 +2,13 @@ import './NoteEditor.css'
 
 import { useState , useEffect, useRef} from 'react'
 
-const NoteEditor = ({valueTitle='',valueDescription='' , readonly=false, path=null,redirect=null, method='GET',textButton='Enviar'}) => {
+import { useParams } from 'react-router'
+
+const NoteEditor = ({valueTitle='',valueDescription='' , readonly=false, path=null,redirect=null, method='GET',textButton='Enviar',modEditNote=false}) => {
 
     const [title,setTitle] = useState('')
     const [description,setDescription] = useState('')
-
+    const { noteId }=useParams()
     const formRef=useRef()
 
     useEffect(()=>{
@@ -28,16 +30,20 @@ const NoteEditor = ({valueTitle='',valueDescription='' , readonly=false, path=nu
         if(!path) return;
 
         const {token, id:userId}=JSON.parse(localStorage.getItem('userInfoSession'));
-        
+
+        const data={title,description}
+
+        modEditNote ? data['noteId']=noteId : data['userId']=userId
+
         if(!token) return;
-    
+        console.log(data)
         const Config={
             method,
             headers:{
                 'Content-Type':'application/json',
                 'Authorization':`Bearer ${token}`
             },
-            body:JSON.stringify({title,description,userId})
+            body:JSON.stringify(data)
 
         }
         fetch(path,Config)
@@ -48,7 +54,6 @@ const NoteEditor = ({valueTitle='',valueDescription='' , readonly=false, path=nu
         e.preventDefault()
         window.location.href=redirect;
     }
-
     return (
         <div className="form-container">
             <form className="form" onSubmit={readonly?handlerModeReadonly:handlerSubmit} ref={formRef}>

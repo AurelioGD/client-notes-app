@@ -8,7 +8,7 @@ import AllNotes from './pages/AllNotes/AllNotes';
 import FavoriteNotes from './pages/FavoriteNotes/FavoriteNotes';
 import NewNote from './pages/NewNote/NewNote';
 import UpdateNote from './pages/UpdateNote/UpdateNote';
-
+import EditNote from './pages/EditNote/EditNote';
 import InfoNote from './context/InfoNote'
 
 function App() {
@@ -22,6 +22,7 @@ function App() {
           <PrivateRoute path="/favorite-notes" exact={true} component={FavoriteNotes}/>
           <PrivateRoute path="/new-note" exact={true} component={NewNote}/>
           <PrivateRoute path="/about/:noteId" exact={true} component={UpdateNote}/>
+          <PrivateRoute path="/edit/:noteId" exact={true} component={EditNote}/>
           <Route path="/login" exact component={Login}/>
           <Route path="/register" exact children={<Register/>}/>
         </InfoNote>

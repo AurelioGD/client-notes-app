@@ -45,7 +45,7 @@ const Note = ({ noteId , title = "loading..", description="loading..", favorite=
             <h3 className="note__title">{title}</h3>
             <p className="note__description">{description}</p>
             <div className="note__actions">
-                <button className="note__btn btn-edit">Edit</button>
+                <Link className="note__btn btn-edit" to={'/edit/'+noteId}>Edit</Link>
                 <Link className="note__btn btn-about" to={'/about/'+noteId}>About</Link>
                 <button className="note__btn btn-delete" onClick={handlerDeleteNote}>Delete</button>
             </div>
