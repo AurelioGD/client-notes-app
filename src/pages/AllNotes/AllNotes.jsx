@@ -3,23 +3,20 @@ import Note from '../../components/Note/Note.jsx';
 import './AllNotes.css'
 import noteContext from '../../context/noteContext.js';
 import { useContext, useEffect } from 'react';
+import getAllNotes from '../../services/getAllNotes'
 
-const API_ALLNOTES="http://localhost:5500/api/notes/all"
 
 const AllNotes = () => {
 
     const { notes,setNotes }=useContext(noteContext)
 
     useEffect(()=>{
-        const token= JSON.parse(localStorage.getItem('userInfoSession')).token;
-        fetch(API_ALLNOTES,{
-            method:"GET",
-            headers:{
-                'authorization':`Bearer ${token}`
-            }
-        })
-            .then(rawNotes=>rawNotes.json())
-            .then(Notes=>setNotes(Notes.AllNotes))
+        const token = JSON.parse(localStorage.getItem('userInfoSession')).token;
+        const gettingAllNotes = async ()=>{
+            const AllNotes = await getAllNotes(token)
+            setNotes(AllNotes)
+        }
+        gettingAllNotes()
     },[setNotes])
 
     return (

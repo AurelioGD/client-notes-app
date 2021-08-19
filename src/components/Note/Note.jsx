@@ -11,13 +11,10 @@ const Note = ({ noteId , title = "loading..", description="loading..", favorite=
 
     const [favoriteMode,setFavoriteMode]=useState(favorite)
 
-    const handlerDeleteNote=()=>{
+    const handlerDeleteNote= async ()=>{
         const token= JSON.parse(localStorage.getItem('userInfoSession')).token;
-        deleteNote(noteId,token)
-            .then(rawData=>rawData.json())
-            .then(data=>{
-                if(!data.error)window.location.href='/all-notes'
-            })
+        const response = deleteNote(noteId,token)
+        if(!response.error) window.location.href='/all-notes'
     }
     const handlerChangeFavorite=()=>{
         console.log(noteId)
